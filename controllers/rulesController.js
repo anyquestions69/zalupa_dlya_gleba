@@ -29,6 +29,8 @@ class Controller {
         return res.send(obj[req.params.id])
     }
     async create(req,res){
+        const rules = file.readJSON("rules.json")
+        const add = req.body
         return res.send(true)
     }
     async delete(req,res){
@@ -44,9 +46,10 @@ class Controller {
             }
         }
         console.log(rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]])
+        const deleted = rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]]
         delete rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]]
         file.update("rules.json", rules)
-        return res.send(rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]])
+        return res.send(deleted)
     }
 }
 
