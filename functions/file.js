@@ -1,4 +1,4 @@
-const {readFileSync} = require("fs")
+const {readFileSync, writeFileSync} = require("fs")
 class Manager{
      readJSON(filename){
         try {
@@ -10,10 +10,10 @@ class Manager{
             return null
           }
     }
-    deleteFrom(filename, key){
+    update(filename, object){
         try {
-            let obj = JSON.parse(readFileSync(__dirname+'/../data/'+filename, 'utf8'));
-            delete obj[key]
+            
+            let obj = writeFileSync(__dirname+'/../data/'+filename, JSON.stringify(object))
             return obj
           } catch (e) {
             console.warn(e)

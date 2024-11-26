@@ -45,6 +45,7 @@ class Controller {
         }
         console.log(rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]])
         delete rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]]
+        file.update("rules.json", rules)
         return res.send(rules[obj[req.params.id][0]][obj[req.params.id][1]][obj[req.params.id][2]])
     }
 }
