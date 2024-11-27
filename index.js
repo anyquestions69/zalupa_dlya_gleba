@@ -1,9 +1,13 @@
 const express = require("express")
+const app=express()
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
 const rulesRouter = require("./routers/rulesRouter");
 const additionsRouter = require("./routers/additionsRouter")
 const PORT = process.env.PORT || 3000
 
-const app=express()
+
+
 const router = express.Router()
 router.use("/additions", additionsRouter)
 router.use("/rules", rulesRouter)

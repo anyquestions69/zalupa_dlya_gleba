@@ -31,7 +31,21 @@ class Controller {
     async create(req,res){
         const rules = file.readJSON("rules.json")
         const add = req.body
-        return res.send(true)
+        console.log(req.body)
+        const prefix = Object.keys(add)[0]
+        const id = Object.keys(add[prefix])[0]
+        const suffix = Object.keys(add[prefix][id])[0]
+        if(rules[prefix]){
+            if(rules[prefix][id]){
+                rules[prefix][id][suffix] = add[prefix][id][suffix]
+            }else{
+                rules[prefix][id] = add[prefix][id]
+            }
+        }else{
+            rules[prefix]=add[prefix]
+        }
+        file.update("rules.json", rules)
+        return res.send(rules)
     }
     async delete(req,res){
         const rules = file.readJSON("rules.json")
