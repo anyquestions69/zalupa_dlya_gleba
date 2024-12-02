@@ -1,0 +1,14 @@
+digraph G {
+        node[color = black, fontsize = 12];
+        edge[color = black, fontsize = 12];
+Instruments -> binary_vulns[dir=both,color = blue,arrowhead=normal, arrowtail=box]; 
+Instruments -> Static[dir=both,color = black,arrowhead=normal, arrowtail=box]; 
+Instruments -> Symbolic[dir=both,color = black,arrowhead=normal, arrowtail=box]; 
+Static -> Ida[dir=both,color = black,arrowhead=normal, arrowtail=box]; 
+Static -> Ghidra[dir=both,color = black,arrowhead=normal, arrowtail=box]; 
+Static -> Radare[dir=both,color = black,arrowhead=normal, arrowtail=box]; 
+Dynamic -> edb[dir=both,color = black,arrowhead=normal, arrowtail=box]; 
+Instruments -> Ida[dir=both,style = dotted, color = black,arrowhead=normal, arrowtail=box]; 
+Instruments -> Ghidra[dir=both,style = dotted, color = black,arrowhead=normal, arrowtail=box]; 
+Instruments -> Radare[dir=both,style = dotted, color = black,arrowhead=normal, arrowtail=box]; 
+}
